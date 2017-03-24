@@ -9,10 +9,24 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
-  entry: './app.js',
+  entry: './app.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015']
+          }
+        }
+      }
+    ]
   },
   plugins: [
     HTMLWebpackPluginConfig
