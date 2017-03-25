@@ -9,10 +9,12 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
-  entry: './app.jsx',
+  entry: {
+    main: './app.jsx',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[chunkhash].js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
