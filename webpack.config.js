@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackConfig = {
@@ -27,6 +28,15 @@ const webpackConfig = {
   plugins: [
     new htmlWebpackPlugin({
       template: path.resolve(__dirname, 'src') + '/index.html'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: (module) => {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
     })
   ],
   resolve: {
