@@ -25,7 +25,9 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    new htmlWebpackPlugin({ template: path.resolve(__dirname, 'src') + '/index.html' })
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src') + '/index.html'
+    })
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
