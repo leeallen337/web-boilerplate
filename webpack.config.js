@@ -22,7 +22,7 @@ const webpackConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'es2015']
+            presets: ['es2015', 'react']
           }
         }
       }
@@ -30,7 +30,10 @@ const webpackConfig = {
   },
   plugins: [
     HTMLWebpackPluginConfig
-  ]
+  ],
+  resolve: {
+    extensions: ['*', '.js', '.json', '.jsx']
+  }
 };
 
 module.exports = webpackConfig;
