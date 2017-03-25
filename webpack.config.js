@@ -1,11 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, 'src') + '/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
@@ -31,7 +25,7 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    HTMLWebpackPluginConfig
+    new htmlWebpackPlugin({ template: path.resolve(__dirname, 'src') + '/index.html' })
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
