@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
@@ -26,7 +26,7 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src') + '/index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin({
