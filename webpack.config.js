@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
@@ -25,7 +26,10 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextWebpackPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       }
     ]
   },
@@ -41,7 +45,8 @@ const webpackConfig = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
-    })
+    }),
+    new ExtractTextWebpackPlugin('styles.[contenthash].css')
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
