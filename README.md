@@ -1,10 +1,17 @@
 ## Webpack Boilerplate with React
 
 Install:
-`yarn install`
+```
+yarn install
+```
 
 Build:
-`yarn run build`
+```
+yarn run build
+```
+
 
 Server:
-`yarn run server`
+```
+yarn run server
+```
