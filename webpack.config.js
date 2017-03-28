@@ -1,15 +1,17 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
+const DIR_SRC = __dirname + '/src';
+const DIR_DIST = __dirname + '/dist';
+
 const webpackConfig = {
-  context: path.resolve(__dirname, 'src'),
+  context: DIR_SRC,
   entry: {
     main: './app.jsx',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: DIR_DIST,
     filename: '[name].[chunkhash].js'
   },
   module: {
@@ -35,7 +37,7 @@ const webpackConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src') + '/index.html'
+      template: DIR_SRC + '/index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
