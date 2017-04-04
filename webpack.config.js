@@ -12,6 +12,7 @@ const webpackConfig = {
   },
   output: {
     path: DIR_DIST,
+    publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
   module: {
@@ -52,6 +53,9 @@ const webpackConfig = {
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
+  },
+  devServer: {
+    historyApiFallback: true
   }
 };
 
