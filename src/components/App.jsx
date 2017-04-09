@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div>Hello, World!</div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <h1>Hello, World!</h1>
+    );
+  }
+
 }
 
 module.exports = App;
