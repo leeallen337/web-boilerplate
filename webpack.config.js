@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 const DIR_SRC = __dirname + '/src';
 const DIR_DIST = __dirname + '/dist';
@@ -48,6 +49,9 @@ const webpackConfig = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
+    }),
+    new InlineManifestWebpackPlugin({
+      name: 'webpackManifest'
     }),
     new ExtractTextWebpackPlugin('styles.[contenthash].css')
   ],
