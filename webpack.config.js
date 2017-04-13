@@ -24,7 +24,16 @@ const webpackConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react']
+            presets: [
+              [
+                'env', {
+                  'targets': {
+                    'browsers': ['last 2 versions']
+                  }
+                }
+              ],
+              'react'
+            ]
           }
         }
       },
