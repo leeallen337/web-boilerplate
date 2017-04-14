@@ -9,7 +9,7 @@ const DIR_DIST = __dirname + '/dist';
 const webpackConfig = {
   context: DIR_SRC,
   entry: {
-    main: './index.jsx',
+    bundle: './index.jsx',
   },
   output: {
     path: DIR_DIST,
