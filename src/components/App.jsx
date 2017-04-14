@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const propTypes = {};
+
 class App extends Component {
 
   render() {
@@ -7,7 +9,8 @@ class App extends Component {
       <h1>Hello, World!</h1>
     );
   }
-
 }
+
+App.propTypes = propTypes;
 
 module.exports = App;
