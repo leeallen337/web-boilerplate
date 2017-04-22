@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   context: __dirname + '/src',
@@ -22,18 +21,14 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextWebpackPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + '/src' + '/index.html'
-    }),
-    new ExtractTextWebpackPlugin('styles.[contenthash].css')
+    })
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
