@@ -1,17 +1,7 @@
 ## Webpack Boilerplate with React
 
-Install:
-```
-yarn install
-```
+Install: `yarn install`
 
-Build:
-```
-yarn run build
-```
+Server: `yarn start`
 
-
-Server:
-```
-yarn run server
-```
+Build: `yarn run build` or `yarn run build:production`
