@@ -6,7 +6,8 @@ FROM ubuntu:16.04
 # -- curl: For curl command
 RUN apt-get update && apt-get install -y \
   apt-transport-https \
-  curl
+  curl \
+  vim
 
 # So we can install a Node version higher than what is in Ubuntu's repository
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
@@ -23,22 +24,23 @@ RUN apt-get update && apt-get install -y \
   nodejs
 
 # Make a directory for the application
-RUN mkdir /app
+RUN mkdir -p /app/src
 
 # Set the directory for following commands
 WORKDIR /app
 
 # Copy package.json
-COPY package.json /app/package.json
-
-# Copy yarn.lock
-COPY yarn.lock /app/yarn.lock
+COPY package.json \
+  yarn.lock \
+  .babelrc \
+  webpack* \
+  /app/
 
 # Install app denpendencies
 RUN yarn install
 
 # Copy application code
-COPY . /app
+COPY ./src /app/src
 
 # Expose the port for webpack
 EXPOSE 8080
