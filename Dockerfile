@@ -1,5 +1,5 @@
 # Use the latest slim LTS
-FROM node:6.10.2-slime
+FROM node:6.10.2-slim
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
