@@ -24,3 +24,6 @@ COPY . /app
 
 # Expose the port for webpack
 EXPOSE 8080
+
+# Default command associated with the image
+CMD ["yarn", "start"]

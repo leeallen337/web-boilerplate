@@ -2,7 +2,7 @@ version: '3'
 services:
   client:
     build: .
-    command: 'yarn start'
+    command: yarn start
     tty: true
     volumes:
       - .:/app
