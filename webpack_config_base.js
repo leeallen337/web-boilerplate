@@ -26,6 +26,7 @@ const config = {
     ]
   },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: __dirname + '/src' + '/index.html'
     })
