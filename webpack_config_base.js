@@ -7,9 +7,7 @@ const outputPath = path.resolve(__dirname, 'dist');
 
 const config = {
   context: contextPath,
-  entry: {
-    bundle: './index.jsx',
-  },
+  entry: {},
   output: {
     path: outputPath,
     filename: '[name].js'
@@ -30,7 +28,6 @@ const config = {
     ]
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: contextPath + '/index.html'
     })
