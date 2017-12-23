@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
   context: __dirname + '/src',
@@ -40,6 +41,7 @@ const config = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin('dist'),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: __dirname + '/src' + '/index.html'
