@@ -6,6 +6,6 @@ config.devServer = {
   host: '0.0.0.0'
 };
 
-config.devtool = 'inline-source-map';
+config.devtool = 'eval-source-map';
 
 module.exports = config;
