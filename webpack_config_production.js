@@ -18,7 +18,7 @@ config.module.rules = config.module.rules.concat([
           loader: 'css-loader',
           options: {
             importLoaders: 1,
-            sourceMaps: true
+            minimize: true
           }
         },
         {
@@ -43,6 +43,7 @@ config.plugins = config.plugins.concat([
   new InlineManifestWebpackPlugin({
     name: 'webpackManifest'
   }),
+  new webpack.optimize.UglifyJsPlugin()
 ]);
 
 module.exports = config;
