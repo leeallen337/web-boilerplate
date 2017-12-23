@@ -1,10 +1,14 @@
 ## Webpack Boilerplate with React
 
-Install: `yarn install`
+### Requirements
+Node v8.0+
+NPM v5.0+
 
-Server: `yarn start`
+Install: `npm install`
 
-Build: `yarn run build` or `yarn run build:production`
+Server: `npm start`
+
+Build: `npm run build` or `npm run build:production`
 
 You can also use Docker
 

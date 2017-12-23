@@ -1,5 +1,5 @@
-# Use the latest slim LTS
-FROM node:6.10.2-slim
+# Use the latest LTS
+FROM node:8.9.3
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -13,11 +13,11 @@ WORKDIR /app
 
 # Copy package.json
 COPY package.json \
-  yarn.lock \
+  package-lock.json \
   /app/
 
 # Install app denpendencies
-RUN yarn install
+RUN npm install
 
 # Copy application code
 COPY . /app
@@ -26,4 +26,4 @@ COPY . /app
 EXPOSE 8080
 
 # Default command associated with the image
-CMD ["yarn", "start"]
+CMD ["npm", "start"]

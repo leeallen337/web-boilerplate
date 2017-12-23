@@ -5,7 +5,6 @@ const config = require('./webpack_config_base');
 
 config.bail = true;
 config.profile = false;
-config.devtool = 'source-map';
 config.output.filename = '[name].[chunkhash].js';
 
 config.plugins = config.plugins.concat([

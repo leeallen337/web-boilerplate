@@ -21,7 +21,21 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMaps: true
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
       }
     ]
   },
@@ -33,9 +47,6 @@ const config = {
   ],
   resolve: {
     extensions: ['*', '.js', '.json', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true
   }
 };
 
