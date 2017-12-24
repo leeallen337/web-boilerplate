@@ -33,9 +33,7 @@ describe('components/Text', function () {
 
     describe('onChange', function() {
       it('changes value on text change', function() {
-        console.log(text);
-        text.find('input')
-          .simulate('change', { target: { value: 'abc' } });
+        text.find('input').simulate('change', { target: { value: 'abc' } });
         expect(props.actions.text.updateText.calledOnce).to.be.true;
       })
     });
