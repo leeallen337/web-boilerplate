@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack -d --progress --colors",
     "build:production": "NODE_ENV=production webpack --progress --colors",
-    "deploy": "npm run build:production && aws s3 sync dist/ s3://<BUCKET-NAME-HERE>",
+    "deploy": "npm run build:production && aws s3 sync dist/ s3://<S3 BUCKET NAME> --delete",
+    "deploy:invalidate": "npm run deploy:staging && npm run deploy:invalidate",
+    "invalidate:html": "aws cloudfront create-invalidation --distribution-id <CLOUDFRONT DISTRUBTION ID> --paths /index.html",
     "start": "webpack-dev-server",
     "test": "NODE_ENV=test mocha --compilers jsx:babel-register --opts 'support/mocha.opts' 'src/**/*.spec.*'"
   },
