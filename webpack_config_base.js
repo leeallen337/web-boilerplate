@@ -25,6 +25,9 @@ const config = {
   plugins: [
     new CleanWebpackPlugin('dist'),
     new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': { 'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development') }
+    }),
     new HtmlWebpackPlugin({
       template: __dirname + '/src' + '/index.html'
     })
